@@ -1,8 +1,6 @@
 #ifndef MATH_H
 #define MATH_H
 #include <math.h>
-#include <sstream>
-#include <iomanip>
 #include <string>
 
 namespace math
@@ -15,4 +13,5 @@ std::string pow(const int& first, const int& second);
 std::string getFactorial(const int& first);
 int countFactorial(const int& first);
 }
+
 #endif
