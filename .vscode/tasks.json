@@ -8,8 +8,9 @@
       "args": [
         "-g",
         "main.cpp",
+        "math.cpp",
         "-o",
-        "main"
+        "bin/calc"
       ],
       "group": {
         "kind": "build",

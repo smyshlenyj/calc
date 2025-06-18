@@ -1,17 +1,5 @@
-#include <iomanip>
+#include "math.h"
 #include <iostream>
-#include <math.h>
-#include <sstream>
-
-int factorial(int n) {
-  if (n < 0) {
-    return 0;
-  } else if (n == 0) {
-    return 1;
-  } else {
-    return n * factorial(n - 1);
-  }
-}
 
 int main() {
   std::cout << "Калькулятор";
@@ -19,7 +7,7 @@ int main() {
   while (true) {
     std::cout << "\nВведите: \n+ для сложения \n- для вычитания \n* для "
                  "умножения \n/ для деления \n^ для возведения в степень\nf "
-                 "для взятия факториала числа\n\nи q для выхода из программы"
+                 "для вычисления факториала числа\n\nи q для выхода из программы"
               << std::endl;
     char choice;
     std::cin >> choice;
@@ -45,59 +33,27 @@ int main() {
 
     switch (choice) {
     case '+': {
-      std::cout << std::to_string(first) + " + " + std::to_string(second) +
-                       " = " + std::to_string(first + second)
-                << std::endl;
+      std::cout << math::add(first, second) << std::endl;
       break;
     }
     case '-': {
-      std::cout << std::to_string(first) + " - " + std::to_string(second) +
-                       " = " + std::to_string(first - second)
-                << std::endl;
+      std::cout << math::substract(first, second) << std::endl;
       break;
     }
     case '*': {
-      std::cout << std::to_string(first) + " * " + std::to_string(second) +
-                       " = " + std::to_string(first * second)
-                << std::endl;
+      std::cout << math::multiply(first, second) << std::endl;
       break;
     }
     case '/': {
-      if (second == 0) {
-        std::cout << "Делить на ноль нельзя!" << std::endl;
-        break;
-      }
-      double doubleRes = double(first) / second;
-      std::ostringstream oss;
-      oss << std::setprecision(8) << std::noshowpoint << doubleRes;
-      std::string str = oss.str();
-      std::cout << std::to_string(first) + " / " + std::to_string(second) +
-                       " = " + str
-                << std::endl;
+      std::cout << math::divide(first, second) << std::endl;
       break;
     }
     case '^': {
-      if (second == 0) {
-        std::cout << std::to_string(first) + " ^ " + std::to_string(second) +
-                         " = " + "1"
-                  << std::endl;
-        break;
-      }
-      if (second < 0) {
-        std::cout << "Я пока так не умею(" << std::endl;
-        break;
-      }
-      int res = first;
-      for (int i = 1; i < second; ++i) {
-        res *= first;
-      }
-
-      std::cout << std::to_string(res) << std::endl;
+      std::cout << math::pow(first, second) << std::endl;
       break;
     }
-
     case 'f': {
-      std::cout << std::to_string(factorial(first)) << std::endl;
+      std::cout << math::getFactorial(first) << std::endl;
       break;
     }
     }
