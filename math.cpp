@@ -4,24 +4,24 @@
 
 namespace math {
 
-std::string add(const int &first, const int &second) {
+std::string add(int first, int second) {
   std::string result = std::to_string(first) + " + " + std::to_string(second) +
                        " = " + std::to_string(first + second);
   return result;
 }
 
-std::string substract(const int &first, const int &second) {
+std::string subtract(int first, int second) {
   std::string result = std::to_string(first) + " - " + std::to_string(second) +
                        " = " + std::to_string(first - second);
   return result;
 }
 
-std::string multiply(const int &first, const int &second) {
+std::string multiply(int first, int second) {
   std::string result = std::to_string(first) + " * " + std::to_string(second) +
                        " = " + std::to_string(first * second);
   return result;
 }
-std::string divide(const int &first, const int &second) {
+std::string divide(int first, int second) {
   if (second == 0)
     return "Делить на ноль нельзя!";
 
@@ -34,7 +34,7 @@ std::string divide(const int &first, const int &second) {
       std::to_string(first) + " / " + std::to_string(second) + " = " + str;
   return result;
 }
-std::string pow(const int &first, const int &second) {
+std::string pow(int first, int second) {
   if (second == 0)
     return std::to_string(first) + " ^ " + std::to_string(second) + " = " + "1";
   if (second < 0)
@@ -47,7 +47,7 @@ std::string pow(const int &first, const int &second) {
   return std::to_string(result);
 }
 
-std::string getFactorial(const int &n) {
+std::string getFactorial(int n) {
   if (n < 0)
     return "Введите положительное число!";
   if (n == 0)
@@ -55,7 +55,7 @@ std::string getFactorial(const int &n) {
   return "Факториал числа " + std::to_string(n) + " = " + std::to_string(math::countFactorial(n));
 };
 
-int countFactorial(const int &n) {
+int countFactorial(int n) {
     if (n == 1) return 1;
     return n * countFactorial(n - 1); 
 }

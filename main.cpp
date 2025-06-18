@@ -37,7 +37,7 @@ int main() {
       break;
     }
     case '-': {
-      std::cout << math::substract(first, second) << std::endl;
+      std::cout << math::subtract(first, second) << std::endl;
       break;
     }
     case '*': {
