@@ -40,7 +40,7 @@ std::string pow(int first, int second) {
   if (second < 0)
     return "Я пока так не умею(";
   int result = first;
-  for (int i = 1; i < second; ++i) {
+  for (int i = 0; i < second - 1; ++i) {
     result *= first;
   }
 
@@ -50,13 +50,12 @@ std::string pow(int first, int second) {
 std::string getFactorial(int n) {
   if (n < 0)
     return "Введите положительное число!";
-  if (n == 0)
-    return "Факториал числа 0 = 1";
+
   return "Факториал числа " + std::to_string(n) + " = " + std::to_string(math::countFactorial(n));
 };
 
 int countFactorial(int n) {
-    if (n == 1) return 1;
+    if (n == 0) return 1;
     return n * countFactorial(n - 1); 
 }
 } // namespace math
