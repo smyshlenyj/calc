@@ -1,5 +1,6 @@
 #include "math.h"
 #include <iostream>
+#include <limits>
 
 int main() {
   std::cout << "Калькулятор";
@@ -12,6 +13,14 @@ int main() {
         << std::endl;
     char choice;
     std::cin >> choice;
+    if (std::cin.fail()) {
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(),
+                      '\n');
+      std::cout << "Некорректный ввод. Повторите попытку." << std::endl;
+      continue;
+    }
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     if (choice == 'q') {
       std::cout << "Всего доброго!" << std::endl;
       return 0;
@@ -21,7 +30,8 @@ int main() {
     if (choice == 'f') {
       std::cout << "Введите число" << std::endl;
       std::cin >> first;
-    } else if (choice == '+' || choice == '-' || choice == '*'|| choice == '/' || choice == '^') {
+    } else if (choice == '+' || choice == '-' || choice == '*' ||
+               choice == '/' || choice == '^') {
       std::cout << "Введите: первое число" << std::endl;
       std::cin >> first;
       std::cout << "Введите: второе число" << std::endl;
