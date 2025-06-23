@@ -25,7 +25,7 @@ std::string divide(int first, int second) {
   if (second == 0)
     return "Делить на ноль нельзя!";
 
-  double doubleRes = double(first) / second;
+  double doubleRes = static_cast<double>(first) / second;
   std::ostringstream oss;
   oss << std::setprecision(8) << std::noshowpoint << doubleRes;
   std::string str = oss.str();
